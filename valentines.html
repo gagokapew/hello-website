@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HELLO PANGA KUUU</title>
+    <title>Valentine's Surprise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,8 +15,10 @@
         }
 
         .container {
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             text-align: center;
+            padding: 10px;
         }
 
         h1 {
@@ -67,6 +69,40 @@
             object-fit: cover;
             border: 1px solid #ccc;
         }
+
+        /* Media query for screens smaller than 600px (mobile mode) */
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .container {
+                width: 90%;
+                max-width: none;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.25rem;
+            }
+
+            button {
+                width: 100%;
+                padding: 15px;
+                font-size: 1.1rem;
+            }
+
+            .final {
+                height: 120px;
+                font-size: 0.9rem;
+                line-height: 120px;
+            }
+
+            .pictures img {
+                height: 80px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -75,28 +111,24 @@
         <div class="step active" id="step1">
             <h1>HELLOO PANGGAAA!</h1>
             <p>pindutin mo yung next... 😜</p>
-            <div class="final">Picture Here</div>
             <button id="nextStep1">Next</button>
         </div>
 
         <!-- Step 2 -->
         <div class="step" id="step2">
             <h1>sige next pa</h1>
-            <div class="final">Picture Here</div>
             <button id="nextStep2">Next</button>
         </div>
 
         <!-- Step 3 -->
         <div class="step" id="step3">
             <h1>Malapit naaaa!!! 🥳</h1>
-            <div class="final">Picture Here</div>
             <button id="nextStep3">Next</button>
         </div>
 
         <!-- Step 4 -->
         <div class="step" id="step4">
             <h1>Konti nalanggg! 😁</h1>
-            <div class="final">Picture Here</div>
             <button id="nextStep4">Next</button>
         </div>
 
