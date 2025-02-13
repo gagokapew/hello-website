@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLO PANGA KUUU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .final {
+            height: 150px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 150px;
+            font-size: 1rem;
+        }
+
+        .pictures {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pictures img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Step 1 -->
+        <div class="step active" id="step1">
+            <h1>HELLOO PANGGAAA!</h1>
+            <p>pindutin mo yung next... 😜</p>
+            <div class="final">Picture Here</div>
+            <button id="nextStep1">Next</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step" id="step2">
+            <h1>sige next pa</h1>
+            <div class="final">Picture Here</div>
+            <button id="nextStep2">Next</button>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step" id="step3">
+            <h1>Malapit naaaa!!! 🥳</h1>
+            <div class="final">Picture Here</div>
+            <button id="nextStep3">Next</button>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step" id="step4">
+            <h1>Konti nalanggg! 😁</h1>
+            <div class="final">Picture Here</div>
+            <button id="nextStep4">Next</button>
+        </div>
+
+        <!-- Final Step -->
+        <div class="step" id="step5">
+            <h1>HAPY VALENTINES DAY 😚🥰</h1>
+            <p>Can u be my valentines 😘</p>
+            <!-- Four picture slots -->
+            <div class="pictures">
+                <img src="panga.jpg" alt="Picture 1">
+                <img src="pangga.jpg" alt="Picture 2">
+                <img src="panggaaaa.jpg" alt="Picture 3">
+                <img src="panggaaaaga.jpg" alt="Picture 4">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Steps
+            const step1 = document.getElementById("step1");
+            const step2 = document.getElementById("step2");
+            const step3 = document.getElementById("step3");
+            const step4 = document.getElementById("step4");
+            const step5 = document.getElementById("step5");
+
+            // Buttons
+            const nextStep1 = document.getElementById("nextStep1");
+            const nextStep2 = document.getElementById("nextStep2");
+            const nextStep3 = document.getElementById("nextStep3");
+            const nextStep4 = document.getElementById("nextStep4");
+
+            // Event Listeners for "Next" buttons
+            nextStep1.addEventListener("click", () => {
+                step1.classList.remove("active");
+                step2.classList.add("active");
+            });
+
+            nextStep2.addEventListener("click", () => {
+                step2.classList.remove("active");
+                step3.classList.add("active");
+            });
+
+            nextStep3.addEventListener("click", () => {
+                step3.classList.remove("active");
+                step4.classList.add("active");
+            });
+
+            nextStep4.addEventListener("click", () => {
+                step4.classList.remove("active");
+                step5.classList.add("active");
+            });
+        });
+    </script>
+</body>
+</html>
