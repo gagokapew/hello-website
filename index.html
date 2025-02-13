@@ -19,6 +19,7 @@
             max-width: 300px;
             text-align: center;
             padding: 10px;
+            position: relative;
         }
 
         h1 {
@@ -38,7 +39,6 @@
             border: 1px solid #ccc;
             background-color: #f0f0f0;
             position: relative;
-            transition: all 0.1s ease-in-out;
         }
 
         .step {
@@ -113,25 +113,25 @@
         <div class="step active" id="step1">
             <h1>HELLOO PANGGAAA!</h1>
             <p>pindutin mo yung next... 😜</p>
-            <button id="nextStep1" class="wiggle">Next</button>
+            <button id="nextStep1">Next</button>
         </div>
 
         <!-- Step 2 -->
         <div class="step" id="step2">
             <h1>sige next pa</h1>
-            <button id="nextStep2" class="wiggle">Next</button>
+            <button id="nextStep2">Next</button>
         </div>
 
         <!-- Step 3 -->
         <div class="step" id="step3">
             <h1>Malapit naaaa!!! 🥳</h1>
-            <button id="nextStep3" class="wiggle">Next</button>
+            <button id="nextStep3">Next</button>
         </div>
 
         <!-- Step 4 -->
         <div class="step" id="step4">
             <h1>Konti nalanggg! 😁</h1>
-            <button id="nextStep4" class="wiggle">Next</button>
+            <button id="nextStep4">Next</button>
         </div>
 
         <!-- Final Step -->
@@ -163,38 +163,32 @@
             const nextStep3 = document.getElementById("nextStep3");
             const nextStep4 = document.getElementById("nextStep4");
 
-            // Event Listeners for "Next" buttons
-            nextStep1.addEventListener("click", () => {
-                step1.classList.remove("active");
-                step2.classList.add("active");
-            });
-
-            nextStep2.addEventListener("click", () => {
-                step2.classList.remove("active");
-                step3.classList.add("active");
-            });
-
-            nextStep3.addEventListener("click", () => {
-                step3.classList.remove("active");
-                step4.classList.add("active");
-            });
-
-            nextStep4.addEventListener("click", () => {
-                step4.classList.remove("active");
-                step5.classList.add("active");
-            });
-
-            // Randomly move the button on hover
-            const wiggleButtons = document.querySelectorAll('.wiggle');
-
-            wiggleButtons.forEach(button => {
-                button.addEventListener('mouseover', () => {
-                    const randomX = Math.random() * 100 - 50; // Move left/right
-                    const randomY = Math.random() * 100 - 50; // Move up/down
-                    button.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            // Move button and require 5 presses
+            function makeButtonTricky(button, nextStep, currentStep) {
+                let pressCount = 0;
+                button.addEventListener("click", () => {
+                    pressCount++;
+                    if (pressCount >= 5) {
+                        currentStep.classList.remove("active");
+                        nextStep.classList.add("active");
+                    } else {
+                        // Move button to random position within the container
+                        button.style.position = "absolute";
+                        const randomTop = Math.random() * 80 + 10;  // Random position between 10% and 90%
+                        const randomLeft = Math.random() * 80 + 10;
+                        button.style.top = randomTop + "%";
+                        button.style.left = randomLeft + "%";
+                    }
                 });
-            });
+            }
+
+            // Event Listeners for "Next" buttons with tricky movement
+            makeButtonTricky(nextStep1, step2, step1);
+            makeButtonTricky(nextStep2, step3, step2);
+            makeButtonTricky(nextStep3, step4, step3);
+            makeButtonTricky(nextStep4, step5, step4);
         });
     </script>
 </body>
 </html>
+
