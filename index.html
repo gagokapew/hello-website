@@ -19,7 +19,6 @@
             max-width: 300px;
             text-align: center;
             padding: 10px;
-            position: relative;
         }
 
         h1 {
@@ -38,7 +37,6 @@
             cursor: pointer;
             border: 1px solid #ccc;
             background-color: #f0f0f0;
-            position: relative;
         }
 
         .step {
@@ -134,9 +132,33 @@
             <button id="nextStep4">Next</button>
         </div>
 
-        <!-- Final Step -->
+        <!-- Step 5 -->
         <div class="step" id="step5">
-            <h1>HAPY VALENTINES DAY 😚🥰</h1>
+            <h1>HAHA malapit na! 🤩</h1>
+            <button id="nextStep5">Next</button>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="step" id="step6">
+            <h1>Konting hintay pa 😍</h1>
+            <button id="nextStep6">Next</button>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="step" id="step7">
+            <h1>Hehe, eto naaa 😘</h1>
+            <button id="nextStep7">Next</button>
+        </div>
+
+        <!-- Step 8 -->
+        <div class="step" id="step8">
+            <h1>READY KA NA? 🤭</h1>
+            <button id="nextStep8">Next</button>
+        </div>
+
+        <!-- Final Step -->
+        <div class="step" id="step9">
+            <h1>HAPPY VALENTINES DAY 😚🥰</h1>
             <p>Can u be my valentines 😘</p>
             <!-- Four picture slots -->
             <div class="pictures">
@@ -156,39 +178,64 @@
             const step3 = document.getElementById("step3");
             const step4 = document.getElementById("step4");
             const step5 = document.getElementById("step5");
+            const step6 = document.getElementById("step6");
+            const step7 = document.getElementById("step7");
+            const step8 = document.getElementById("step8");
+            const step9 = document.getElementById("step9");
 
             // Buttons
             const nextStep1 = document.getElementById("nextStep1");
             const nextStep2 = document.getElementById("nextStep2");
             const nextStep3 = document.getElementById("nextStep3");
             const nextStep4 = document.getElementById("nextStep4");
+            const nextStep5 = document.getElementById("nextStep5");
+            const nextStep6 = document.getElementById("nextStep6");
+            const nextStep7 = document.getElementById("nextStep7");
+            const nextStep8 = document.getElementById("nextStep8");
 
-            // Move button and require 5 presses
-            function makeButtonTricky(button, nextStep, currentStep) {
-                let pressCount = 0;
-                button.addEventListener("click", () => {
-                    pressCount++;
-                    if (pressCount >= 5) {
-                        currentStep.classList.remove("active");
-                        nextStep.classList.add("active");
-                    } else {
-                        // Move button to random position within the container
-                        button.style.position = "absolute";
-                        const randomTop = Math.random() * 80 + 10;  // Random position between 10% and 90%
-                        const randomLeft = Math.random() * 80 + 10;
-                        button.style.top = randomTop + "%";
-                        button.style.left = randomLeft + "%";
-                    }
-                });
-            }
+            // Event Listeners for "Next" buttons
+            nextStep1.addEventListener("click", () => {
+                step1.classList.remove("active");
+                step2.classList.add("active");
+            });
 
-            // Event Listeners for "Next" buttons with tricky movement
-            makeButtonTricky(nextStep1, step2, step1);
-            makeButtonTricky(nextStep2, step3, step2);
-            makeButtonTricky(nextStep3, step4, step3);
-            makeButtonTricky(nextStep4, step5, step4);
+            nextStep2.addEventListener("click", () => {
+                step2.classList.remove("active");
+                step3.classList.add("active");
+            });
+
+            nextStep3.addEventListener("click", () => {
+                step3.classList.remove("active");
+                step4.classList.add("active");
+            });
+
+            nextStep4.addEventListener("click", () => {
+                step4.classList.remove("active");
+                step5.classList.add("active");
+            });
+
+            nextStep5.addEventListener("click", () => {
+                step5.classList.remove("active");
+                step6.classList.add("active");
+            });
+
+            nextStep6.addEventListener("click", () => {
+                step6.classList.remove("active");
+                step7.classList.add("active");
+            });
+
+            nextStep7.addEventListener("click", () => {
+                step7.classList.remove("active");
+                step8.classList.add("active");
+            });
+
+            nextStep8.addEventListener("click", () => {
+                step8.classList.remove("active");
+                step9.classList.add("active");
+            });
         });
     </script>
 </body>
 </html>
+
 
